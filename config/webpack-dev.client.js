@@ -30,11 +30,6 @@ module.exports = {
         src: path.resolve(__dirname, '../src/'), 
       },
     },
-    devServer:{
-        contentBase:'./dist',
-        port:4000,
-        writeToDisk: true,
-    },
     plugins: [
         new LoadablePlugin(),
         new CleanWebpackPlugin(),
