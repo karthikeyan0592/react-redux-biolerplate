@@ -1,21 +1,20 @@
 const webpack = require('webpack')
 const path = require('path')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const nodeExternals = require('webpack-node-externals')
 const LoadablePlugin = require('@loadable/webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry:{
-      vendor:['react','react-dom'],
-     main: './src/App/App.js'
-    },
+    entry:'./src/App/ServerApp.js',
     output: {
-        path: path.resolve(__dirname,'../dist/client'),
-        publicPath: '/dist/client/',
-        filename:'[name].js',
+        path: path.resolve(__dirname,'../dist/node'),
+        publicPath: '/dist/node/',
+        filename:'main.js',
         chunkFilename: '[name].js',
     },
-    target:'web',
+    target:'node',
+    // externals:['commonjs @loadable/component', nodeExternals()],
     mode:'development',
     module:{
         rules:[{

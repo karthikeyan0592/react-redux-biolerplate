@@ -1,8 +1,16 @@
 
-import ReactDOM from 'react-dom'
-import WrapperComponent from './RouteComponent'
+import React , { Suspense } from 'react'
+import ReactDOM, {hydrate} from 'react-dom'
+import { loadableReady } from '@loadable/component'
+import RouteComponent from './RouteComponent.js'
 
-ReactDOM.render(
-    <WrapperComponent />,
-    document.getElementById('target')
-  )
+
+loadableReady(() => {
+  const root = document.getElementById('target')
+  hydrate(<Suspense fallback=""><RouteComponent /></Suspense>, root)
+})
+
+// ReactDOM.render(
+//     <WrapperComponent />,
+//     document.getElementById('target')
+//   )

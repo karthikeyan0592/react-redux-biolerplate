@@ -1,13 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { Route, Switch } from 'react-router'
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
     Link
   } from "react-router-dom"
-  import loadable from '@loadable/component'
-// import  {Home, Register, Contact, About, SignIn}  from "../pages"
+import loadable from '@loadable/component'
 
 const Home = loadable((props)=>import('src/pages/Home'))
 const Register = loadable((props)=>import('src/pages/Register'))
@@ -16,30 +13,10 @@ const About = loadable(()=>import('src/pages/About'))
 const SignIn = loadable(()=>import('src/pages/SignIn'))
 
 
-
-export const WrapperComponent = ()=>{
-    return (<Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-              <li>
-                <Link to="/signin">SignIn</Link>
-              </li>
-            </ul>
-          </nav>
-  
+class RouteComponent extends React.Component {
+  render(){
+    return (
+      <div>
           <Switch>
             <Route path="/about">
               <About />
@@ -57,7 +34,10 @@ export const WrapperComponent = ()=>{
               <Home />
             </Route>
           </Switch>
-        </div>
-      </Router>)
+        </div>)
+  }
 }
+
+export default RouteComponent
+export {RouteComponent}
 
