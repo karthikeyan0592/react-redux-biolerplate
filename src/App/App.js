@@ -6,26 +6,20 @@ import { loadableReady } from '@loadable/component'
 import RouteComponent from './RouteComponent.js'
 
 
-// loadableReady(() => {
-//   const root = document.getElementById('target')
-//   hydrate(
-//     <Suspense fallback="">
-//       <BrowserRouter>
-//         <RouteComponent />
-//       </BrowserRouter>
-//     </Suspense>, root)
-// })
-
 function WrapperComponent() {
   return (
     <Router>
       <RouteComponent />
-    </Router>
-    // <RouteComponent />
+     </Router>
   )
 }
+loadableReady(() => {
+  const root = document.getElementById('target')
+  hydrate(<WrapperComponent />, root)
+})
 
-ReactDOM.render(
-    <WrapperComponent />,
-    document.getElementById('app-root')
-  )
+
+// ReactDOM.render(
+//     <WrapperComponent />,
+//     document.getElementById('app-root')
+//   )
