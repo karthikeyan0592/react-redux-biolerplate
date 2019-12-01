@@ -7,6 +7,7 @@ export function getHTML(props) {
   <h1>My First Server Side Render</h1>
   <div id="app-root">${html}</div>
   </body>
+  ${scriptTags}
   </html>
   `)
 }

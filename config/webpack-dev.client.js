@@ -5,10 +5,7 @@ const LoadablePlugin = require('@loadable/webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry:{
-      vendor:['react','react-dom'],
-     main: './src/App/App.js'
-    },
+    entry:'./src/App/App.js',
     output: {
         path: path.resolve(__dirname,'../dist/client'),
         publicPath: '/dist/client/',

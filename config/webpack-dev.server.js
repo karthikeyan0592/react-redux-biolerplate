@@ -12,6 +12,7 @@ module.exports = {
         publicPath: '/dist/node/',
         filename:'main.js',
         chunkFilename: '[name].js',
+        libraryTarget: 'commonjs2',
     },
     target:'node',
     // externals:['commonjs @loadable/component', nodeExternals()],
