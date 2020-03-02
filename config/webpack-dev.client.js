@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin')
 const LoadablePlugin = require('@loadable/webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -15,18 +17,16 @@ module.exports = {
   target: 'web',
   mode: 'development',
   module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          query: {
-            compact: false,
-          },
+    rules: [{
+      test: /\.(js|jsx|ts|tsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        query: {
+          compact: false,
         },
       },
-    ],
+    }, ],
   },
   devtool: 'source-map',
   resolve: {
