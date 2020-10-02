@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch  --max-old-space-size=8192 config/development.js",
+    "devServer": "cross-env Enable_SSR=true nodemon --watch  --max-old-space-size=8192 config/development.js",
     "buildProd": "webpack --config config/webpack-prod.client.js"
   },
   "author": "",

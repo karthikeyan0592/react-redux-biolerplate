@@ -1,6 +1,4 @@
-require('@babel/register')
-const {
-  initServerSetup
-} = require('./server.js')
+require("@babel/register");
+const { initCompileSetup } = require("./serverConfig.js");
 
-initCompileSetup()
+initCompileSetup();
